@@ -28,20 +28,16 @@ function validateInput(testInput) {
   // validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
   if (testInput === "") {
     return "Empty";
-  } else if (typeof testInput === "number") {
+  } else if (isNaN(testInput) === false) {
     return "Is a Number";
-    }
+  }
+
   return "Not a Number";
 }
 
-function formSubmission(
-  document,
-  list,
-  pilot,
-  copilot,
-  fuelLevel,
-  cargoLevel
-) {}
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+  // formSubmission() will take in a document parameter and strings representing the pilot, co-pilot, fuel level, and cargo mass. Using the values in those strings and the document parameter for your HTML document, update the shuttle requirements as described below.
+}
 
 async function myFetch() {
   let planetsReturned;
