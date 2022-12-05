@@ -22,11 +22,22 @@ window.addEventListener("load", function () {
     .then(function () {
       console.log(listedPlanets);
       // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+      //console.log('calling pick planet worked',pickPlanet(listedPlanets))
+      let destination = pickPlanet(listedPlanets);
+      addDestinationInfo(
+        document,
+        destination.name,
+        destination.diameter,
+        destination.star,
+        destination.distance,
+        destination.moons,
+        destination.image
+      );
     });
 
   form.addEventListener("submit", function (event) {
     //Use preventDefault() to prevent a request from being sent out and the page reloading.
-    event.preventDefault()
+    event.preventDefault();
     if (
       pilotNameInput.value === "" ||
       copilotNameInput.value === "" ||
