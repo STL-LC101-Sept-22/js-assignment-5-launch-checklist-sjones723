@@ -2,11 +2,14 @@
 
 window.addEventListener("load", function () {
   let form = document.querySelector("form");
-
+  // storing element input keys
   let pilotNameInput = document.querySelector("input[name=pilotName]");
   let copilotNameInput = document.querySelector("input[name=copilotName]");
   let fuelLevelInput = document.querySelector("input[name=fuelLevel]");
   let cargoMassInput = document.querySelector("input[name=cargoMass]");
+
+  //The list of shuttle requirements, the div id=faultyItems
+  let list = document.getElementById("faultyItems");
 
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
@@ -22,6 +25,8 @@ window.addEventListener("load", function () {
     });
 
   form.addEventListener("submit", function (event) {
+    //Use preventDefault() to prevent a request from being sent out and the page reloading.
+    event.preventDefault()
     if (
       pilotNameInput.value === "" ||
       copilotNameInput.value === "" ||
@@ -29,8 +34,14 @@ window.addEventListener("load", function () {
       cargoMassInput.value === ""
     ) {
       alert("All fields are required!");
-      // stop the form submission
-      event.preventDefault();
     }
+    formSubmission(
+      document,
+      list,
+      pilotNameInput.value,
+      copilotNameInput.value,
+      fuelLevelInput.value,
+      cargoMassInput.value
+    );
   });
 });
