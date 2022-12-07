@@ -38,7 +38,7 @@ function addDestinationInfo(
 
 function validateInput(testInput) {
   // validateInput() should take in a string as a parameter and return "Empty", "Not a Number", or "Is a Number" as appropriate.
-  if (testInput === "") {
+  if (testInput.trim() === "") {
     return "Empty";
   } else if (isNaN(testInput) === false) {
     return "Is a Number";
