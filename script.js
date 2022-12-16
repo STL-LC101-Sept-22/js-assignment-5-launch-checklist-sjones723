@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
 
   //The list of shuttle requirements, the div id=faultyItems
   let list = document.getElementById("faultyItems");
-
+  list.style.visibility = "hidden";
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
   let listedPlanetsResponse = myFetch();
@@ -48,26 +48,28 @@ window.addEventListener("load", function () {
       alert("All fields are required!");
     }
     //Validate - The user entered text for names and numbers for fuel and cargo levels.
-      //https://www.w3resource.com/javascript/form/all-letters-field.php
-      //https://www.w3resource.com/javascript/form/all-numbers.php
+    //https://www.w3resource.com/javascript/form/all-letters-field.php
+    //https://www.w3resource.com/javascript/form/all-numbers.php
     let letters = /^[A-Za-z]+$/;
-    let numbers = /^[-+]?[0-9]+$/
-    if(!pilotNameInput.value.match(letters) || !copilotNameInput.value.match(letters)||
-    !fuelLevelInput.value.match(numbers)||
-    !cargoMassInput.value.match(numbers)){
+    let numbers = /^[-+]?[0-9]+$/;
+    if (
+      !pilotNameInput.value.trim().match(letters) ||
+      !copilotNameInput.value.match(letters) ||
+      !fuelLevelInput.value.match(numbers) ||
+      !cargoMassInput.value.match(numbers)
+    ) {
       alert("Make sure to enter valid information for each field!");
-    }else{
-    formSubmission(
-      document,
-      list,
-      pilotNameInput.value,
-      copilotNameInput.value,
-      fuelLevelInput.value,
-      cargoMassInput.value
-    );
-  }
+    } else {
+      formSubmission(
+        document,
+        list,
+        pilotNameInput.value,
+        copilotNameInput.value,
+        fuelLevelInput.value,
+        cargoMassInput.value
+      );
+    }
   });
 });
 
-
- //
+//
