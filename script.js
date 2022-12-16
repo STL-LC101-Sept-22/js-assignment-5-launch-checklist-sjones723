@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
 
   //The list of shuttle requirements, the div id=faultyItems
   let list = document.getElementById("faultyItems");
-  list.style.visibility = "hidden";
+  list.style.visibility = "visible";
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
   let listedPlanetsResponse = myFetch();
@@ -54,7 +54,7 @@ window.addEventListener("load", function () {
     let numbers = /^[-+]?[0-9]+$/;
     if (
       !pilotNameInput.value.trim().match(letters) ||
-      !copilotNameInput.value.match(letters) ||
+      !copilotNameInput.value.trim().match(letters) ||
       !fuelLevelInput.value.match(numbers) ||
       !cargoMassInput.value.match(numbers)
     ) {
