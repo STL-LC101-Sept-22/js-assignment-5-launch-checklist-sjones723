@@ -22,8 +22,8 @@ function addDestinationInfo(
                 </ol>
                 <img src="">
    */
-    let missionTargetEle = document.getElementById("missionTarget");
-    missionTargetEle.innerHTML = `
+  let missionTargetEle = document.getElementById("missionTarget");
+  missionTargetEle.innerHTML = `
     <h2>Mission Destination</h2>
                 <ol>
                     <li>Name: ${name}</li>
@@ -33,7 +33,7 @@ function addDestinationInfo(
                     <li>Number of Moons: ${moons}</li>
                 </ol>
                 <img src="${imageUrl}">
-    `
+    `;
 }
 
 function validateInput(testInput) {
@@ -88,24 +88,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   */
   //   If the shuttle is ready to launch, change the text of launchStatus to green and display "Shuttle is ready for launch".
   if (cargoLevel < 10000 && fuelLevel >= 10000) {
-    list.style.visibility = "visible";
+    list.style.visibility = "hidden";
     fuelStatusEle.innerHTML = "Fuel level high enough for launch";
     cargoStatusEle.innerHTML = "Cargo mass low enough for launch";
     launchStatusEle.style.color = "rgb(65, 159, 106)";
     launchStatusEle.innerHTML = "Shuttle is Ready for Launch";
-  }else if (cargoLevel >= 10000 && fuelLevel >= 10000) {
+  } else if (cargoLevel >= 10000 && fuelLevel >= 10000) {
     list.style.visibility = "visible";
     fuelStatusEle.innerHTML = "Fuel level high enough for launch";
     cargoStatusEle.innerHTML = "Cargo mass too heavy for launch";
     launchStatusEle.style.color = testRed;
     launchStatusEle.innerHTML = "Shuttle Not Ready for Launch";
-  }else if (cargoLevel >= 10000 && fuelLevel < 10000) {
+  } else if (cargoLevel >= 10000 && fuelLevel < 10000) {
     list.style.visibility = "visible";
     fuelStatusEle.innerHTML = "Fuel level too low for launch";
     cargoStatusEle.innerHTML = "Cargo mass too heavy for launch";
     launchStatusEle.style.color = testRed;
     launchStatusEle.innerHTML = "Shuttle Not Ready for Launch";
-  }else if (cargoLevel < 10000 && fuelLevel < 10000) {
+  } else if (cargoLevel < 10000 && fuelLevel < 10000) {
     list.style.visibility = "visible";
     fuelStatusEle.innerHTML = "Fuel level too low for launch";
     cargoStatusEle.innerHTML = "Cargo mass low enough for launch";
@@ -127,7 +127,7 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-  return planets[Math.floor(Math.random()*planets.length)];
+  return planets[Math.floor(Math.random() * planets.length)];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
