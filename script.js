@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
 
   //The list of shuttle requirements, the div id=faultyItems
   let list = document.getElementById("faultyItems");
-  list.style.visibility = "visible";
+  list.style.visibility = "hidden";
   let listedPlanets;
   // Set listedPlanetsResponse equal to the value returned by calling myFetch()
   let listedPlanetsResponse = myFetch();
